@@ -7,10 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "AppDelegate.h"
+#import "TSAppDelegate.h"
 
 int main(int argc, char * argv[]) {
 	@autoreleasepool {
-	    return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
+		[DDLog addLogger:[DDOSLogger sharedInstance]];
+		[DDLog addLogger:[DDTTYLogger sharedInstance]];
+		
+		DDFileLogger *fileLogger = [[DDFileLogger alloc] init];
+		fileLogger.rollingFrequency = (60 * 60 * 24) * 7;
+		[DDLog addLogger:fileLogger];
+		
+	    return UIApplicationMain(argc, argv, nil, NSStringFromClass([TSAppDelegate class]));
 	}
 }

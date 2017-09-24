@@ -7,25 +7,49 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		445A59A90E2588857B906C0E /* libPods-Lichtenstein.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 50CDB59C506326D17B412ABE /* libPods-Lichtenstein.a */; };
 		6A72D3EE1F6F5A25000409B0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A72D3ED1F6F5A25000409B0 /* main.m */; };
-		6A72D3F11F6F5A25000409B0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A72D3F01F6F5A25000409B0 /* AppDelegate.m */; };
-		6A72D3F41F6F5A25000409B0 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A72D3F31F6F5A25000409B0 /* ViewController.m */; };
+		6A72D3F11F6F5A25000409B0 /* TSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A72D3F01F6F5A25000409B0 /* TSAppDelegate.m */; };
+		6A72D3F41F6F5A25000409B0 /* TSMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A72D3F31F6F5A25000409B0 /* TSMainViewController.m */; };
 		6A72D3F71F6F5A25000409B0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A72D3F51F6F5A25000409B0 /* Main.storyboard */; };
 		6A72D3F91F6F5A25000409B0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6A72D3F81F6F5A25000409B0 /* Assets.xcassets */; };
 		6A72D3FC1F6F5A25000409B0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A72D3FA1F6F5A25000409B0 /* LaunchScreen.storyboard */; };
+		6A9F67801F762854006083B6 /* TSLightControlTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A9F677F1F762854006083B6 /* TSLightControlTabBarController.m */; };
+		6AA65AB41F70932E0028BA4E /* TSLichtensteinConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AA65AB31F70932E0028BA4E /* TSLichtensteinConnection.m */; };
+		6AA65AB81F709B740028BA4E /* NSNetService+TSNetworkAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AA65AB71F709B740028BA4E /* NSNetService+TSNetworkAdditions.m */; };
+		6AA65ABC1F733E0C0028BA4E /* TSEffectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AA65ABB1F733E0C0028BA4E /* TSEffectViewController.m */; };
+		6AA65ABE1F733E8E0028BA4E /* TSEffectNames.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6AA65ABD1F733E8E0028BA4E /* TSEffectNames.plist */; };
+		6AA65AC51F7346240028BA4E /* TSColorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AA65AC41F7346240028BA4E /* TSColorViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2FA94E68C5E15CFEF012F9AE /* Pods-Lichtenstein.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lichtenstein.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Lichtenstein/Pods-Lichtenstein.debug.xcconfig"; sourceTree = "<group>"; };
+		50CDB59C506326D17B412ABE /* libPods-Lichtenstein.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Lichtenstein.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A72D3E91F6F5A25000409B0 /* Lichtenstein.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lichtenstein.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A72D3ED1F6F5A25000409B0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		6A72D3EF1F6F5A25000409B0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		6A72D3F01F6F5A25000409B0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		6A72D3F21F6F5A25000409B0 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		6A72D3F31F6F5A25000409B0 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		6A72D3EF1F6F5A25000409B0 /* TSAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TSAppDelegate.h; sourceTree = "<group>"; };
+		6A72D3F01F6F5A25000409B0 /* TSAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TSAppDelegate.m; sourceTree = "<group>"; };
+		6A72D3F21F6F5A25000409B0 /* TSMainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TSMainViewController.h; sourceTree = "<group>"; };
+		6A72D3F31F6F5A25000409B0 /* TSMainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TSMainViewController.m; sourceTree = "<group>"; };
 		6A72D3F61F6F5A25000409B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6A72D3F81F6F5A25000409B0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6A72D3FB1F6F5A25000409B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6A72D3FD1F6F5A25000409B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6A9F677E1F762854006083B6 /* TSLightControlTabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TSLightControlTabBarController.h; sourceTree = "<group>"; };
+		6A9F677F1F762854006083B6 /* TSLightControlTabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TSLightControlTabBarController.m; sourceTree = "<group>"; };
+		6AA65AAF1F6F8B970028BA4E /* Lichtenstein.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Lichtenstein.pch; sourceTree = "<group>"; };
+		6AA65AB21F70932E0028BA4E /* TSLichtensteinConnection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TSLichtensteinConnection.h; sourceTree = "<group>"; };
+		6AA65AB31F70932E0028BA4E /* TSLichtensteinConnection.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TSLichtensteinConnection.m; sourceTree = "<group>"; };
+		6AA65AB51F7098D90028BA4E /* TSLichtensteinCmdStructs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TSLichtensteinCmdStructs.h; sourceTree = "<group>"; };
+		6AA65AB61F709B740028BA4E /* NSNetService+TSNetworkAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSNetService+TSNetworkAdditions.h"; sourceTree = "<group>"; };
+		6AA65AB71F709B740028BA4E /* NSNetService+TSNetworkAdditions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSNetService+TSNetworkAdditions.m"; sourceTree = "<group>"; };
+		6AA65ABA1F733E0C0028BA4E /* TSEffectViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TSEffectViewController.h; sourceTree = "<group>"; };
+		6AA65ABB1F733E0C0028BA4E /* TSEffectViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TSEffectViewController.m; sourceTree = "<group>"; };
+		6AA65ABD1F733E8E0028BA4E /* TSEffectNames.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = TSEffectNames.plist; sourceTree = "<group>"; };
+		6AA65AC01F7345E00028BA4E /* Lichtenstein-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Lichtenstein-Bridging-Header.h"; sourceTree = "<group>"; };
+		6AA65AC31F7346240028BA4E /* TSColorViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TSColorViewController.h; sourceTree = "<group>"; };
+		6AA65AC41F7346240028BA4E /* TSColorViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TSColorViewController.m; sourceTree = "<group>"; };
+		7E1AE7F192E7A26BAAF3B31B /* Pods-Lichtenstein.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lichtenstein.release.xcconfig"; path = "Pods/Target Support Files/Pods-Lichtenstein/Pods-Lichtenstein.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +57,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				445A59A90E2588857B906C0E /* libPods-Lichtenstein.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		260072E77381AB5E4149E40E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				50CDB59C506326D17B412ABE /* libPods-Lichtenstein.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		6A72D3E01F6F5A25000409B0 = {
 			isa = PBXGroup;
 			children = (
 				6A72D3EB1F6F5A25000409B0 /* Lichtenstein */,
 				6A72D3EA1F6F5A25000409B0 /* Products */,
+				F2BD5871743A228EB1BD2B44 /* Pods */,
+				260072E77381AB5E4149E40E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,15 +93,15 @@
 		6A72D3EB1F6F5A25000409B0 /* Lichtenstein */ = {
 			isa = PBXGroup;
 			children = (
-				6A72D3EF1F6F5A25000409B0 /* AppDelegate.h */,
-				6A72D3F01F6F5A25000409B0 /* AppDelegate.m */,
-				6A72D3F21F6F5A25000409B0 /* ViewController.h */,
-				6A72D3F31F6F5A25000409B0 /* ViewController.m */,
+				6AA65ABF1F7345D40028BA4E /* UI Controls */,
+				6AA65AB11F7092C00028BA4E /* Discovery and Communication */,
+				6AA65AB01F7092870028BA4E /* UI */,
 				6A72D3F51F6F5A25000409B0 /* Main.storyboard */,
 				6A72D3F81F6F5A25000409B0 /* Assets.xcassets */,
 				6A72D3FA1F6F5A25000409B0 /* LaunchScreen.storyboard */,
 				6A72D3FD1F6F5A25000409B0 /* Info.plist */,
 				6A72D3EC1F6F5A25000409B0 /* Supporting Files */,
+				6AA65AAF1F6F8B970028BA4E /* Lichtenstein.pch */,
 			);
 			path = Lichtenstein;
 			sourceTree = "<group>";
@@ -79,6 +114,69 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		6AA65AB01F7092870028BA4E /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				6AA65AC21F7346140028BA4E /* Color Controller */,
+				6AA65AB91F733DF40028BA4E /* Effect Controller */,
+				6A72D3EF1F6F5A25000409B0 /* TSAppDelegate.h */,
+				6A72D3F01F6F5A25000409B0 /* TSAppDelegate.m */,
+				6A72D3F21F6F5A25000409B0 /* TSMainViewController.h */,
+				6A72D3F31F6F5A25000409B0 /* TSMainViewController.m */,
+				6A9F677E1F762854006083B6 /* TSLightControlTabBarController.h */,
+				6A9F677F1F762854006083B6 /* TSLightControlTabBarController.m */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
+		6AA65AB11F7092C00028BA4E /* Discovery and Communication */ = {
+			isa = PBXGroup;
+			children = (
+				6AA65AB21F70932E0028BA4E /* TSLichtensteinConnection.h */,
+				6AA65AB31F70932E0028BA4E /* TSLichtensteinConnection.m */,
+				6AA65AB51F7098D90028BA4E /* TSLichtensteinCmdStructs.h */,
+				6AA65AB61F709B740028BA4E /* NSNetService+TSNetworkAdditions.h */,
+				6AA65AB71F709B740028BA4E /* NSNetService+TSNetworkAdditions.m */,
+			);
+			name = "Discovery and Communication";
+			sourceTree = "<group>";
+		};
+		6AA65AB91F733DF40028BA4E /* Effect Controller */ = {
+			isa = PBXGroup;
+			children = (
+				6AA65ABA1F733E0C0028BA4E /* TSEffectViewController.h */,
+				6AA65ABB1F733E0C0028BA4E /* TSEffectViewController.m */,
+				6AA65ABD1F733E8E0028BA4E /* TSEffectNames.plist */,
+			);
+			name = "Effect Controller";
+			sourceTree = "<group>";
+		};
+		6AA65ABF1F7345D40028BA4E /* UI Controls */ = {
+			isa = PBXGroup;
+			children = (
+				6AA65AC01F7345E00028BA4E /* Lichtenstein-Bridging-Header.h */,
+			);
+			name = "UI Controls";
+			sourceTree = "<group>";
+		};
+		6AA65AC21F7346140028BA4E /* Color Controller */ = {
+			isa = PBXGroup;
+			children = (
+				6AA65AC31F7346240028BA4E /* TSColorViewController.h */,
+				6AA65AC41F7346240028BA4E /* TSColorViewController.m */,
+			);
+			name = "Color Controller";
+			sourceTree = "<group>";
+		};
+		F2BD5871743A228EB1BD2B44 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2FA94E68C5E15CFEF012F9AE /* Pods-Lichtenstein.debug.xcconfig */,
+				7E1AE7F192E7A26BAAF3B31B /* Pods-Lichtenstein.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -86,9 +184,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6A72D4001F6F5A25000409B0 /* Build configuration list for PBXNativeTarget "Lichtenstein" */;
 			buildPhases = (
+				BA28DFCAA62943A2F1CA112A /* [CP] Check Pods Manifest.lock */,
 				6A72D3E51F6F5A25000409B0 /* Sources */,
 				6A72D3E61F6F5A25000409B0 /* Frameworks */,
 				6A72D3E71F6F5A25000409B0 /* Resources */,
+				89B65C48D10B0EE778CB06B2 /* [CP] Embed Pods Frameworks */,
+				B0A2F7B4D8993582589F2927 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -110,6 +211,8 @@
 				TargetAttributes = {
 					6A72D3E81F6F5A25000409B0 = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 8QDQ246B94;
+						LastSwiftMigration = "";
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -138,6 +241,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6A72D3FC1F6F5A25000409B0 /* LaunchScreen.storyboard in Resources */,
+				6AA65ABE1F733E8E0028BA4E /* TSEffectNames.plist in Resources */,
 				6A72D3F91F6F5A25000409B0 /* Assets.xcassets in Resources */,
 				6A72D3F71F6F5A25000409B0 /* Main.storyboard in Resources */,
 			);
@@ -145,13 +249,72 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		89B65C48D10B0EE778CB06B2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Lichtenstein/Pods-Lichtenstein-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B0A2F7B4D8993582589F2927 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Lichtenstein/Pods-Lichtenstein-resources.sh",
+				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Lichtenstein/Pods-Lichtenstein-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BA28DFCAA62943A2F1CA112A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Lichtenstein-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		6A72D3E51F6F5A25000409B0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6A72D3F41F6F5A25000409B0 /* ViewController.m in Sources */,
-				6A72D3F11F6F5A25000409B0 /* AppDelegate.m in Sources */,
+				6A72D3F41F6F5A25000409B0 /* TSMainViewController.m in Sources */,
+				6AA65AB81F709B740028BA4E /* NSNetService+TSNetworkAdditions.m in Sources */,
+				6AA65AC51F7346240028BA4E /* TSColorViewController.m in Sources */,
+				6A72D3F11F6F5A25000409B0 /* TSAppDelegate.m in Sources */,
+				6AA65AB41F70932E0028BA4E /* TSLichtensteinConnection.m in Sources */,
+				6AA65ABC1F733E0C0028BA4E /* TSEffectViewController.m in Sources */,
+				6A9F67801F762854006083B6 /* TSLightControlTabBarController.m in Sources */,
 				6A72D3EE1F6F5A25000409B0 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -272,23 +435,40 @@
 		};
 		6A72D4011F6F5A25000409B0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2FA94E68C5E15CFEF012F9AE /* Pods-Lichtenstein.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 8QDQ246B94;
+				GCC_PREFIX_HEADER = Lichtenstein/Lichtenstein.pch;
 				INFOPLIST_FILE = Lichtenstein/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.tseifert.Lichtenstein;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Lichtenstein/Lichtenstein-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
 		};
 		6A72D4021F6F5A25000409B0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7E1AE7F192E7A26BAAF3B31B /* Pods-Lichtenstein.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 8QDQ246B94;
+				GCC_PREFIX_HEADER = Lichtenstein/Lichtenstein.pch;
 				INFOPLIST_FILE = Lichtenstein/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.tseifert.Lichtenstein;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Lichtenstein/Lichtenstein-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
 		};
@@ -311,6 +491,7 @@
 				6A72D4021F6F5A25000409B0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

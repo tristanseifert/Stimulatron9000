@@ -6,17 +6,21 @@
 //  Copyright © 2017 Tristan Seifert. All rights reserved.
 //
 
-#import "AppDelegate.h"
+#import "TSAppDelegate.h"
 
-@interface AppDelegate ()
+#import <SVProgressHUD/SVProgressHUD.h>
+
+@interface TSAppDelegate ()
 
 @end
 
-@implementation AppDelegate
+@implementation TSAppDelegate
 
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-	// Override point for customization after application launch.
+- (BOOL) application:(UIApplication *) application didFinishLaunchingWithOptions:(NSDictionary *) launchOptions {
+	// setu p progress HUD
+	[SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
+	
 	return YES;
 }
 

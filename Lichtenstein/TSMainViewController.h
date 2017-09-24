@@ -1,5 +1,5 @@
 //
-//  AppDelegate.h
+//  ViewController.h
 //  Lichtenstein
 //
 //  Created by Tristan Seifert on 2017-09-17.
@@ -8,9 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
-
-@property (strong, nonatomic) UIWindow *window;
+@interface TSMainViewController : UIViewController <NSNetServiceBrowserDelegate>
 
 
 @end
