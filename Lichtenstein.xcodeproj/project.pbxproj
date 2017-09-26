@@ -14,6 +14,7 @@
 		6A72D3F71F6F5A25000409B0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A72D3F51F6F5A25000409B0 /* Main.storyboard */; };
 		6A72D3F91F6F5A25000409B0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6A72D3F81F6F5A25000409B0 /* Assets.xcassets */; };
 		6A72D3FC1F6F5A25000409B0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A72D3FA1F6F5A25000409B0 /* LaunchScreen.storyboard */; };
+		6A7F43A11F789E1800C627DA /* TSHueWheel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A7F43A01F789E1800C627DA /* TSHueWheel.m */; };
 		6A9F67801F762854006083B6 /* TSLightControlTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A9F677F1F762854006083B6 /* TSLightControlTabBarController.m */; };
 		6AA65AB41F70932E0028BA4E /* TSLichtensteinConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AA65AB31F70932E0028BA4E /* TSLichtensteinConnection.m */; };
 		6AA65AB81F709B740028BA4E /* NSNetService+TSNetworkAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AA65AB71F709B740028BA4E /* NSNetService+TSNetworkAdditions.m */; };
@@ -35,6 +36,8 @@
 		6A72D3F81F6F5A25000409B0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6A72D3FB1F6F5A25000409B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6A72D3FD1F6F5A25000409B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6A7F439F1F789E1800C627DA /* TSHueWheel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TSHueWheel.h; path = "Color Picker/TSHueWheel.h"; sourceTree = "<group>"; };
+		6A7F43A01F789E1800C627DA /* TSHueWheel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = TSHueWheel.m; path = "Color Picker/TSHueWheel.m"; sourceTree = "<group>"; };
 		6A9F677E1F762854006083B6 /* TSLightControlTabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TSLightControlTabBarController.h; sourceTree = "<group>"; };
 		6A9F677F1F762854006083B6 /* TSLightControlTabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TSLightControlTabBarController.m; sourceTree = "<group>"; };
 		6AA65AAF1F6F8B970028BA4E /* Lichtenstein.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Lichtenstein.pch; sourceTree = "<group>"; };
@@ -114,6 +117,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		6A7F439E1F789CDC00C627DA /* Color Picker */ = {
+			isa = PBXGroup;
+			children = (
+				6A7F439F1F789E1800C627DA /* TSHueWheel.h */,
+				6A7F43A01F789E1800C627DA /* TSHueWheel.m */,
+			);
+			name = "Color Picker";
+			sourceTree = "<group>";
+		};
 		6AA65AB01F7092870028BA4E /* UI */ = {
 			isa = PBXGroup;
 			children = (
@@ -154,6 +166,7 @@
 		6AA65ABF1F7345D40028BA4E /* UI Controls */ = {
 			isa = PBXGroup;
 			children = (
+				6A7F439E1F789CDC00C627DA /* Color Picker */,
 				6AA65AC01F7345E00028BA4E /* Lichtenstein-Bridging-Header.h */,
 			);
 			name = "UI Controls";
@@ -308,6 +321,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A7F43A11F789E1800C627DA /* TSHueWheel.m in Sources */,
 				6A72D3F41F6F5A25000409B0 /* TSMainViewController.m in Sources */,
 				6AA65AB81F709B740028BA4E /* NSNetService+TSNetworkAdditions.m in Sources */,
 				6AA65AC51F7346240028BA4E /* TSColorViewController.m in Sources */,

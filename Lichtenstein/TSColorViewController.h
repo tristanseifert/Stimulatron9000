@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TSColorViewController : UIViewController
+#import "TSHueWheel.h"
+
+@interface TSColorViewController : UIViewController <TSHueWheelDelegate>
 
 @end

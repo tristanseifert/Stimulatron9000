@@ -12,13 +12,8 @@
 
 @interface TSColorViewController ()
 
-@property (nonatomic) IBOutlet UISlider *sliderH;
-@property (nonatomic) IBOutlet UISlider *sliderS;
-@property (nonatomic) IBOutlet UISlider *sliderI;
-
 @property (nonatomic) IBOutlet UISlider *sliderBright;
-
-@property (nonatomic) IBOutlet UIView *previewColor;
+@property (nonatomic) IBOutlet TSHueWheel *wheel;
 
 - (void) updatePreview;
 
@@ -26,62 +21,59 @@
 
 @implementation TSColorViewController
 
-- (void)viewDidLoad {
+- (void) viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 	
 	[self updatePreview];
-	
-	// update all the color values
-	[self hsiUpdateHue:self.sliderH];
-	[self hsiUpdateIntensity:self.sliderI];
-	[self hsiUpdateSaturation:self.sliderS];
 }
 
 - (void) viewWillAppear:(BOOL)animated {
 	self.sliderBright.value = [TSLichtensteinConnection sharedInstance].brightness;
+	self.wheel.brightness = self.sliderBright.value / 255.f;
+	
+	// extract the color
+	TSLichtensteinConnection *c = [TSLichtensteinConnection sharedInstance];
+	self.wheel.currentColor = [UIColor colorWithHue:c.singleColorH / 360.f
+										 saturation:c.singleColorS
+										 brightness:1.f
+											  alpha:1.f];
 }
 
 /**
- * When called updates the HSI
+ * When the color wheel is changed, update the preview, and send a command to
+ * the remote as well.
  */
-- (IBAction) hsiUpdateHue:(id)sender {
+- (void) colorWheelDidChangeColor:(TSHueWheel *) colorWheel {
 	TSLichtensteinConnection *c = [TSLichtensteinConnection sharedInstance];
 	
-	c.singleColorH = self.sliderH.value;
+	// Get HSI values
+	CGFloat h, s;
 	
-	[self updatePreview];
-}
-
-- (IBAction) hsiUpdateSaturation:(id)sender {
-	TSLichtensteinConnection *c = [TSLichtensteinConnection sharedInstance];
+	[colorWheel.currentColor getHue:&h saturation:&s brightness:nil alpha:nil];
 	
-	c.singleColorS = self.sliderS.value;
+	c.singleColorH = h * 360.f;
+	c.singleColorS = s;
+	c.singleColorI = 1.f;
 	
-	[self updatePreview];
-}
-
-- (IBAction) hsiUpdateIntensity:(id)sender {
-	TSLichtensteinConnection *c = [TSLichtensteinConnection sharedInstance];
-	
-	c.singleColorI = self.sliderI.value;
-	
-	[self updatePreview];
+//	DDLogVerbose(@"HSI (%g, %g, %g)", c.singleColorH, c.singleColorS, c.singleColorI);
 }
 
 /**
  * Update preview color
  */
 - (void) updatePreview {
-	CGFloat hueRad = self.sliderH.value * (M_PI / 180.f) / (M_PI * 2);
-	
-	self.previewColor.backgroundColor = [UIColor colorWithHue:hueRad saturation:self.sliderS.value brightness:self.sliderI.value alpha:1.f];
+//	CGFloat hueRad = self.sliderH.value * (M_PI / 180.f) / (M_PI * 2);
+//	self.previewColor.backgroundColor = [UIColor colorWithHue:hueRad saturation:self.sliderS.value brightness:self.sliderI.value alpha:1.f];
 }
 
 - (IBAction) updateBrightness:(id)sender {
 	TSLichtensteinConnection *c = [TSLichtensteinConnection sharedInstance];
 	
 	c.brightness = (NSUInteger) self.sliderBright.value;
+	
+	// also, update the color wheel
+	self.wheel.brightness = self.sliderBright.value / 255.f;
 }
 
 @end
