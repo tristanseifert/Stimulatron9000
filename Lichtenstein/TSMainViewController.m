@@ -9,28 +9,35 @@
 #import "TSMainViewController.h"
 
 #import "TSLichtensteinConnection.h"
+#import "TSLichtensteinBrowserController.h"
+
+static void *TSKVOCtx = &TSKVOCtx;
 
 @interface TSMainViewController ()
 
 - (void) lichtensteinDisconnected:(NSNotification *) n;
 
+@property (nonatomic) TSLichtensteinBrowserController *browser;
+@property (nonatomic) UINavigationController *browserHolder;
+
 @end
 
 @implementation TSMainViewController
 
-- (void)viewDidLoad {
+- (void) viewDidLoad {
 	[super viewDidLoad];
 	
-	[[TSLichtensteinConnection sharedInstance] connectToLast];
+	// bring up the browsing controller
+	self.browser = [TSLichtensteinBrowserController new];
+	
+	self.browserHolder = [[UINavigationController alloc] initWithRootViewController:self.browser];
+	self.browserHolder.modalPresentationStyle = UIModalPresentationFormSheet;
 	
 	// subscribe to notification
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(lichtensteinDisconnected:) name:TSLichtensteinDisconnectedNotificationName object:nil];
-}
-
-
-- (void)didReceiveMemoryWarning {
-	[super didReceiveMemoryWarning];
-	// Dispose of any resources that can be recreated.
+	
+	// bring up the device picker UI
+	[self presentViewController:self.browserHolder animated:YES completion:nil];
 }
 
 #pragma mark Notifications
@@ -44,6 +51,7 @@
 	[self presentViewController:c animated:YES completion:nil];
 	
 	// bring up the device picker UI
+	[self presentViewController:self.browser animated:YES completion:nil];
 }
 
 @end

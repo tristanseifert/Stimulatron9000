@@ -9,12 +9,13 @@
 #import <Foundation/Foundation.h>
 
 extern const NSString *TSLichtensteinDisconnectedNotificationName;
+extern const NSString *TSLichtensteinConnectedNotificationName;
 
-@interface TSLichtensteinConnection : NSObject <NSNetServiceBrowserDelegate, NSNetServiceDelegate, NSStreamDelegate>
+@interface TSLichtensteinConnection : NSObject <NSStreamDelegate>
 
 + (instancetype) sharedInstance;
 
-- (void) connectToLast;
+- (void) connectToService:(NSNetService *) svc;
 
 @property (nonatomic) BOOL isConnected;
 

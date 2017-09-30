@@ -11,8 +11,6 @@
 
 #import "NSNetService+TSNetworkAdditions.h"
 
-#import <SVProgressHUD/SVProgressHUD.h>
-
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <netinet/tcp.h>
@@ -20,12 +18,10 @@
 static void *KVOCtx = &KVOCtx;
 
 NSString *TSLichtensteinDisconnectedNotificationName = @"TSLichtensteinDisconnectedNotification";
+NSString *TSLichtensteinConnectedNotificationName = @"TSLichtensteinDConnectedNotification";
 
 @interface TSLichtensteinConnection ()
 
-- (void) setUpBrowser;
-
-- (void) connectToServiceAfterBrowse;
 - (void) gatherConnectedState;
 
 - (void) handleLichtensteinResponse:(NSData *) data;
@@ -33,11 +29,6 @@ NSString *TSLichtensteinDisconnectedNotificationName = @"TSLichtensteinDisconnec
 - (void) _updateRemoteWithLocalState;
 
 - (void) _configureOutputStreamOnOpen:(NSOutputStream *) stream;
-
-@property (nonatomic) NSNetServiceBrowser *browser;
-@property (nonatomic) NSMutableArray<NSNetService *> *services;
-
-@property (nonatomic) BOOL connectToFirstService;
 
 @property (nonatomic) NSNetService *connectedService;
 @property (nonatomic) NSInputStream *connectedInStr;
@@ -52,8 +43,6 @@ NSString *TSLichtensteinDisconnectedNotificationName = @"TSLichtensteinDisconnec
  */
 - (id) init {
 	if(self = [super init]) {
-		[self setUpBrowser];
-		
 		// add KVO
 		[self addObserver:self forKeyPath:@"effect" options:0 context:KVOCtx];
 		[self addObserver:self forKeyPath:@"brightness" options:0 context:KVOCtx];
@@ -84,25 +73,11 @@ NSString *TSLichtensteinDisconnectedNotificationName = @"TSLichtensteinDisconnec
 
 #pragma mark Service Connection
 /**
- * Connects to the last Lichtenstein instance we used. If there is none, bring
- * up an UI to connect if there's more than one – otherwise, just connect to the
- * first service we find.
- */
-- (void) connectToLast {
-	dispatch_async(dispatch_get_main_queue(), ^{
-		[SVProgressHUD showWithStatus:NSLocalizedString(@"Connecting…", nil)];
-	});
-	
-	// TODO: lol
-	self.connectToFirstService = YES;
-}
-
-/**
  * Actually connects to the service once we find it.
  */
-- (void) connectToServiceAfterBrowse {
-	NSNetService *svc =[self.services lastObject];
+- (void) connectToService:(NSNetService *) svc {
 	DDLogInfo(@"Connecting to service %@ on %@", svc, svc.hostName);
+	
 	
 	// attempt to create the IO streams
 	NSInputStream *inStr = nil;
@@ -199,12 +174,6 @@ NSString *TSLichtensteinDisconnectedNotificationName = @"TSLichtensteinDisconnec
 	
 	// hide HUD
 	self.isConnected = YES;
-	
-	dispatch_async(dispatch_get_main_queue(), ^{
-		if([SVProgressHUD isVisible]) {
-			[SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"Connected!", nil)];
-		}
-	});
 }
 
 /**
@@ -216,7 +185,7 @@ NSString *TSLichtensteinDisconnectedNotificationName = @"TSLichtensteinDisconnec
 	lichtenstein_cmd_t cmd;
 	memset(&cmd, 0, sizeof(lichtenstein_cmd_t));
 	
-	DDLogVerbose(@"Updating remote state: effect %02x, bright %02x, muted %02x",
+	DDLogDebug(@"Updating remote state: effect %02x, bright %02x, muted %02x",
 				 (unsigned int) self.effect, (unsigned int) self.brightness,
 				 (unsigned int) self.isMuted);
 	
@@ -311,7 +280,7 @@ NSString *TSLichtensteinDisconnectedNotificationName = @"TSLichtensteinDisconnec
 												 maxLength:512];
 				
 				if(read > 0) {
-					DDLogVerbose(@"Read %li bytes", (long) read);
+					DDLogDebug(@"Read %li bytes", (long) read);
 					
 					NSData *data = [NSData dataWithBytes:cmd length:read];
 					[self handleLichtensteinResponse:data];
@@ -331,9 +300,15 @@ NSString *TSLichtensteinDisconnectedNotificationName = @"TSLichtensteinDisconnec
 		}
 	} else if(aStream == self.connectedOutStr) {
 		switch(eventCode) {
-			case NSStreamEventOpenCompleted:
+			case NSStreamEventOpenCompleted: {
 				[self _configureOutputStreamOnOpen:(NSOutputStream *) aStream];
+				
+				// post notification
+				NSNotificationCenter *c = [NSNotificationCenter defaultCenter];
+				[c postNotificationName:TSLichtensteinConnectedNotificationName
+								 object:self.connectedService];
 				break;
+			}
 				
 			default:
 				break;
@@ -402,81 +377,6 @@ NSString *TSLichtensteinDisconnectedNotificationName = @"TSLichtensteinDisconnec
 	if (setsockopt(fd, IPPROTO_TCP, TCP_NODELAY, &option2, sizeof(int)) == -1) {
 		DDLogWarn(@"setsockopt TCP_NODELAY failed: %s", strerror(errno));
 	}
-}
-
-#pragma mark Browsing
-/**
- * Set up mDNS browser to find the "_lichtenstein._tcp" service.
- */
-- (void) setUpBrowser {
-	// set up thing to store everything
-	self.services = [NSMutableArray new];
-	
-	// set up browser
-	self.browser = [[NSNetServiceBrowser alloc] init];
-	
-	self.browser.delegate = self;
-	[self.browser searchForServicesOfType:@"_lichtenstein._tcp" inDomain:@""];
-	
-	DDLogVerbose(@"Begin searching: %@", self.browser);
-}
-
-// Sent when browsing begins
-- (void) netServiceBrowserWillSearch:(NSNetServiceBrowser *) browser {
-	DDLogInfo(@"Begin browsing");
-}
-
-// Sent when browsing stops
-- (void) netServiceBrowserDidStopSearch:(NSNetServiceBrowser *) browser {
-	DDLogInfo(@"Browsing began");
-}
-
-// Sent if browsing fails
-- (void)netServiceBrowser:(NSNetServiceBrowser *) browser
-			 didNotSearch:(NSDictionary *) errorDict {
-	DDLogError(@"Error browsing: %@", errorDict);
-}
-
-// Sent when a service appears
-- (void)netServiceBrowser:(NSNetServiceBrowser *)browser
-		   didFindService:(NSNetService *)aNetService
-			   moreComing:(BOOL)moreComing {
-	DDLogVerbose(@"Got service %@ on %@ port %ld", aNetService, aNetService.addresses, (long) aNetService.port);
-	
-	aNetService.delegate = self;
-	
-	[self.services addObject:aNetService];
-//	[aNetService resolveWithTimeout:0.0];
-	
-	// if there's not more coming, connect
-	if(!moreComing) {
-		DDLogVerbose(@"No more services, making connection attempt");
-		[self connectToServiceAfterBrowse];
-	}
-}
-
-// Sent when a service disappears
-- (void)netServiceBrowser:(NSNetServiceBrowser *)browser
-		 didRemoveService:(NSNetService *)aNetService
-			   moreComing:(BOOL)moreComing {
-	DDLogVerbose(@"Removed service %@ on %@ port %ld", aNetService, aNetService.addresses, (long) aNetService.port);
-	
-	[self.services removeObject:aNetService];
-}
-
-#pragma mark Net Service Delegate
-/**
- * Once we resolve a service's name, do stuff with it.
- */
-- (void) netServiceDidResolveAddress:(NSNetService *) sender {
-	DDLogVerbose(@"Resolved net service %@: %@", sender, sender.hostName);
-}
-
-/**
- * Couldn't resolve this service's name. :(
- */
-- (void) netService:(NSNetService *)sender didNotResolve:(NSDictionary<NSString *,NSNumber *> *)errorDict {
-	DDLogError(@"Didn't resolve service %@: %@", sender, errorDict);
 }
 
 @end
